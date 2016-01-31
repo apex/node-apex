@@ -1,13 +1,25 @@
 
 # Apex Node.js
 
-Node.js module that makes AWS Lambda's user experience a little nicer using promises.
+Node.js module that makes AWS Lambda's user experience a little nicer.
+
+```js
+export default λ(e => {
+  return 'Hello World'
+})
+```
 
 ## Installation
 
 ```
 $ npm install --save apex.js
 ```
+
+## Features
+
+- return promises
+- return results
+- actually report uncaught errors (Lambda does not)
 
 ## Example
 
