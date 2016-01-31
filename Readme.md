@@ -3,6 +3,12 @@
 
 Node.js module that makes AWS Lambda's user experience a little nicer using promises.
 
+## Installation
+
+```
+$ npm install --save apex.js
+```
+
 ## Example
 
 The following example fetches some urls and reports the response status of each. The context is also passed, but is not
