@@ -31,7 +31,7 @@ export default λ(e => {
 })
 ```
 
-Without apex-node it looks something like the following, as Lambda does not try/catch, and the Context
+Without this module it looks something like the following, as Lambda does not try/catch, and the Context
 provided has awkward method names that are not idiomatic.
 
 ```js
