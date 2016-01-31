@@ -4,9 +4,7 @@
 Node.js module that makes AWS Lambda's user experience a little nicer.
 
 ```js
-export default λ(e => {
-  return 'Hello World'
-})
+export default λ(e => 'Hello World')
 ```
 
 ## Installation
