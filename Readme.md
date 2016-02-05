@@ -31,7 +31,7 @@ import 'babel-polyfill'
 
 export default λ(e => {
   console.log('fetching %d urls', e.urls.length)
-  return Promise.all(e.urls.map(async function(url){
+  return Promise.all(e.urls.map(async (url) => {
     console.log('fetching %s', url)
     return {
       status: (await axios.get(url)).status,
@@ -49,11 +49,11 @@ import axios from 'axios'
 import 'babel-polyfill'
 
 // Vanilla Lambda function.
-export default async function(e, ctx) {
+export default async (e, ctx) => {
   console.log('fetching %d urls', e.urls.length)
 
   try {
-    const res = await Promise.all(e.urls.map(async function(url){
+    const res = await Promise.all(e.urls.map(async (url) => {
       console.log('fetching %s', url)
       return {
         status: (await axios.get(url)).status,
