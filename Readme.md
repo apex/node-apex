@@ -21,7 +21,7 @@ $ npm install --save apex.js
 
 ## Example
 
-The following example fetches some urls and reports the response status of each. The context is also passed, but is not
+The following example fetches some urls and reports the response status of each. The context and callback are also passed, but are not
 shown here.
 
 ```js
@@ -42,14 +42,14 @@ export default λ(e => {
 ```
 
 Without this module it looks something like the following, as Lambda does not try/catch, and the Context
-provided has awkward method names that are not idiomatic.
+provided has awkward method names that are not idiomatic, or you must use the callback.
 
 ```js
 import axios from 'axios'
 import 'babel-polyfill'
 
 // Vanilla Lambda function.
-export default async (e, ctx) => {
+export default async (e, ctx, cb) => {
   console.log('fetching %d urls', e.urls.length)
 
   try {
@@ -61,9 +61,11 @@ export default async (e, ctx) => {
       }
     }))
 
-    ctx.succeed(res)
+    // or ctx.succeed(res);
+    cb(null, res);
   } catch (err) {
-    ctx.fail(err)
+    // or ctx.fail(err);
+    cb(err);
   }
 }
 ```
