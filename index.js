@@ -7,8 +7,14 @@ module.exports = function λ(fn) {
 
       if (v && typeof v.then == 'function') {
         v.then(function (val) {
+          process.nextTick(function () {
             cb(null, val)
-        }).catch(cb)
+          })
+        }).catch(function (err) {
+          process.nextTick(function () {
+            cb(err)
+          })
+        })
         return
       }
 
